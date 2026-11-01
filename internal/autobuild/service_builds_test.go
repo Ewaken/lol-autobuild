@@ -95,7 +95,7 @@ func TestRunePageFromBuild(t *testing.T) {
 		Runes: &domain.BuildRunes{
 			PrimaryTree:    domain.RuneStylePrecision,
 			SecondaryTree:  domain.RuneStyleSorcery,
-			SelectedRunes:  []int{8010, 8009, 9104, 8014},
+			SelectedRunes:  []int{8010, 8009, 9104, 8014, 8224, 8233},
 			SelectedShards: []int{5008, 5008, 5011},
 		},
 	}
@@ -107,7 +107,7 @@ func TestRunePageFromBuild(t *testing.T) {
 	want := domain.RunePage{
 		PrimaryStyleID:  domain.RuneStylePrecision,
 		SubStyleID:      domain.RuneStyleSorcery,
-		SelectedPerkIDs: []int{8010, 8009, 9104, 8014, 5008, 5008, 5011},
+		SelectedPerkIDs: []int{8010, 8009, 9104, 8014, 8224, 8233, 5008, 5008, 5011},
 	}
 	if !reflect.DeepEqual(page, want) {
 		t.Fatalf("runePageFromBuild() = %#v, want %#v", page, want)

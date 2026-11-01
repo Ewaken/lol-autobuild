@@ -39,13 +39,13 @@ func (t tokenProviderStub) Claims(_ context.Context) (domain.TokenClaims, error)
 var defaultBuilds = domain.RecommendedBuilds{
 	Role: 4,
 	Builds: []domain.RecommendedBuild{{
-		Keystone: domain.RuneKeystoneGraspOfTheUndying,
-		Tier:     0,
+		Tier:    0,
 		Winrate:  52.3,
 		Runes: &domain.BuildRunes{
 			PrimaryTree:    domain.RuneStyleResolve,
-			SecondaryTree:  domain.RuneStyleSorcery,
-			SelectedRunes:  []int{domain.RuneKeystoneGraspOfTheUndying, 8446, 8444, 8451},
+			SecondaryTree: domain.RuneStyleSorcery,
+			// real payload shape: 6 runes + 3 shards, the 9 perks the LCU requires
+			SelectedRunes:  []int{domain.RuneKeystoneGraspOfTheUndying, 8446, 8444, 8451, 8224, 8233},
 			SelectedShards: []int{5008, 5008, 5002},
 		},
 		ItemBlocks: []domain.BuildBlock{

@@ -182,8 +182,7 @@ func TestGetRecommendedBuildsSendsBodyAndParsesResponse(t *testing.T) {
 		_ = json.NewEncoder(w).Encode(apiRecommendedBuildsResponse{
 			Role: 4,
 			Builds: []apiRecommendedBuild{{
-				Keystone: 8010,
-				Tier:     0,
+				Tier:    0,
 				Winrate:  52.3,
 				Runes: &apiBuildRunes{
 					PrimaryTree:    8000,
@@ -221,7 +220,7 @@ func TestGetRecommendedBuildsSendsBodyAndParsesResponse(t *testing.T) {
 		t.Fatalf("unexpected builds: %#v", builds)
 	}
 	build := builds.Builds[0]
-	if build.Keystone != 8010 || build.Tier != 0 || build.Winrate != 52.3 {
+	if build.Tier != 0 || build.Winrate != 52.3 {
 		t.Fatalf("unexpected build: %#v", build)
 	}
 	if build.Runes == nil || build.Runes.PrimaryTree != 8000 || build.Runes.SecondaryTree != 8100 ||

@@ -32,7 +32,6 @@ type RecommendedBuilds struct {
 }
 
 type RecommendedBuild struct {
-	Keystone   int
 	Tier       int
 	Winrate    float64
 	Runes      *BuildRunes

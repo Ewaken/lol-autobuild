@@ -130,7 +130,7 @@ func TestSyncUsesDetectedChampionIDInApplyRequests(t *testing.T) {
 	wantPage := domain.RunePage{
 		PrimaryStyleID:  domain.RuneStyleResolve,
 		SubStyleID:      domain.RuneStyleSorcery,
-		SelectedPerkIDs: []int{domain.RuneKeystoneGraspOfTheUndying, 8446, 8444, 8451, 5008, 5008, 5002},
+		SelectedPerkIDs: []int{domain.RuneKeystoneGraspOfTheUndying, 8446, 8444, 8451, 8224, 8233, 5008, 5008, 5002},
 	}
 	if !slices.Equal(lcu.runePageCalls[0].Page.SelectedPerkIDs, wantPage.SelectedPerkIDs) ||
 		lcu.runePageCalls[0].Page.PrimaryStyleID != wantPage.PrimaryStyleID ||

@@ -45,7 +45,6 @@ type apiRecommendedBuildsResponse struct {
 }
 
 type apiRecommendedBuild struct {
-	Keystone   int             `json:"keystone"`
 	Tier       int             `json:"tier"`
 	Winrate    float64         `json:"winrate"`
 	Runes      *apiBuildRunes  `json:"runes"`
@@ -144,7 +143,6 @@ func recommendedBuildsFromAPI(in apiRecommendedBuildsResponse) domain.Recommende
 
 func recommendedBuildFromAPI(in apiRecommendedBuild) domain.RecommendedBuild {
 	build := domain.RecommendedBuild{
-		Keystone:   in.Keystone,
 		Tier:       in.Tier,
 		Winrate:    in.Winrate,
 		ItemBlocks: make([]domain.BuildBlock, 0, len(in.ItemBlocks)),

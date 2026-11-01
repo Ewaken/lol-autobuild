@@ -119,7 +119,7 @@ func TestRefreshRejectsMissingTokens(t *testing.T) {
 	}
 }
 
-func TestGetRecommendedBuildsToleratesNullPerkSlots(t *testing.T) {
+func TestGetRecommendedBuildsToleratesNullPerkAndSpellSlots(t *testing.T) {
 	t.Parallel()
 
 	srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, _ *http.Request) {
@@ -137,7 +137,7 @@ func TestGetRecommendedBuildsToleratesNullPerkSlots(t *testing.T) {
 				},
 				"itemBlocks": []
 			}],
-			"spellDuos": []
+			"spellDuos": [{"spellIds": [4, null]}]
 		}`))
 	}))
 	defer srv.Close()
@@ -154,6 +154,9 @@ func TestGetRecommendedBuildsToleratesNullPerkSlots(t *testing.T) {
 	}
 	if !slices.Equal(build.Runes.SelectedShards, []int{5008, 5011}) {
 		t.Fatalf("unexpected selected shards: %#v", build.Runes.SelectedShards)
+	}
+	if !slices.Equal(builds.SpellDuos[0].SpellIDs, []int{4}) {
+		t.Fatalf("unexpected spell duo ids: %#v", builds.SpellDuos[0].SpellIDs)
 	}
 }
 

@@ -52,7 +52,7 @@ type apiRecommendedBuild struct {
 	ItemBlocks []apiBuildBlock `json:"itemBlocks"`
 }
 
-// apiIntList tolerates JSON null entries (e.g. unpicked rune shards).
+// apiIntList tolerates JSON null entries (e.g. unpicked rune shards and spell slots).
 type apiIntList []int
 
 func (l *apiIntList) UnmarshalJSON(data []byte) error {
@@ -89,7 +89,7 @@ type apiBuildBlockItem struct {
 }
 
 type apiSpellDuo struct {
-	SpellIDs []int `json:"spellIds"`
+	SpellIDs apiIntList `json:"spellIds"`
 }
 
 func apiRecommendedBuildsRequestFromDomain(req domain.RecommendedBuildsRequest) apiRecommendedBuildsRequest {
